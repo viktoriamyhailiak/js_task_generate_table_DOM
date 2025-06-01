@@ -359,10 +359,10 @@ const tbody = document.getElementsByTagName('tbody')[0];
 for (const person of people) {
   const row = document.createElement('tr');
   const keys = [
-    'name',
-    'sex',
-    'born',
-    'died',
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
     person.died - person.born,
     Math.ceil(person.died / 100),
   ];
@@ -372,12 +372,7 @@ for (const person of people) {
   for (let i = 0; i < 6; i++) {
     const cell = document.createElement('td');
 
-    if (i >= 4) {
-      cell.innerHTML = keys[i];
-      row.append(cell);
-    } else {
-      cell.innerHTML = person[keys[i]];
-      row.append(cell);
-    }
+    cell.innerHTML = keys[i];
+    row.append(cell);
   }
 }
