@@ -372,7 +372,17 @@ for (const person of people) {
   for (let i = 0; i < 6; i++) {
     const cell = document.createElement('td');
 
-    cell.innerHTML = keys[i];
-    row.append(cell);
+    if (i === 1) {
+      if (keys[i] === 'm') {
+        cell.innerHTML = 'Male';
+      } else {
+        cell.innerHTML = 'Female';
+      }
+
+      row.append(cell);
+    } else {
+      cell.innerHTML = keys[i];
+      row.append(cell);
+    }
   }
 }
