@@ -358,22 +358,21 @@ const tbody = document.getElementsByTagName('tbody')[0];
 
 for (const person of people) {
   const row = document.createElement('tr');
+  const keys = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
 
   tbody.append(row);
 
   for (let i = 0; i < 6; i++) {
     const cell = document.createElement('td');
-    const keys = Object.keys(person);
 
-    if (i === 4) {
-      row.append(cell);
-      cell.innerHTML = person.died - person.born;
-    } else if (i === 5) {
-      row.append(cell);
-      cell.innerHTML = Math.ceil(person.died / 100);
-    } else {
-      row.append(cell);
-      cell.innerHTML = person[keys[i]];
-    }
+    cell.innerHTML = keys[i];
+    row.append(cell);
   }
 }
