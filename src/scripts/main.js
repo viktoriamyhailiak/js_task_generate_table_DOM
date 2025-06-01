@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tbody = document.getElementsByTagName('tbody')[0];
 
-// write your code here
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  tbody.append(row);
+
+  for (let i = 0; i < 6; i++) {
+    const cell = document.createElement('td');
+    const keys = Object.keys(person);
+
+    if (i === 4) {
+      row.append(cell);
+      cell.innerHTML = person.died - person.born;
+    } else if (i === 5) {
+      row.append(cell);
+      cell.innerHTML = Math.ceil(person.died / 100);
+    } else {
+      row.append(cell);
+      cell.innerHTML = person[keys[i]];
+    }
+  }
+}
